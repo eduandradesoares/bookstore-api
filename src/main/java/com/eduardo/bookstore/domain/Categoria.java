@@ -1,15 +1,31 @@
 package com.eduardo.bookstore.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Categoria {
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+
+//Entity cria uma tabela na base de dados 
+@Entity
+public class Categoria implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
+	
+	//@Id é uma anotação que informa a base de dados que essa é uma chave primaria
+	//@GeneratedValue essa anotação mostra a BD que a coluna ID da tabela vai ser um valor único toda vez que for acrescentado um novo valor
+	@Id	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	private Integer id;
 	private String nome;
 	private String descricao;
 	
+	@OneToMany(mappedBy = "categoria")
 	private List<Livro> livros = new ArrayList<>();
 
 	public Categoria() {
