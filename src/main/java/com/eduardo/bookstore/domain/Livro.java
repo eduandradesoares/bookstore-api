@@ -20,7 +20,6 @@ public class Livro implements Serializable{
 	private Integer id;
 	private String titulo;
 	private String nome_autor;
-	private String descricao;
 	private String texto;
 	
 	@ManyToOne
@@ -31,12 +30,11 @@ public class Livro implements Serializable{
 		super();
 	}
 
-	public Livro(Integer id, String titulo, String nome_autor, String descricao, String texto, Categoria categoria) {
+	public Livro(Integer id, String titulo, String nome_autor, String texto, Categoria categoria) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
 		this.nome_autor = nome_autor;
-		this.descricao = descricao;
 		this.texto = texto;
 		this.categoria = categoria;
 	}
@@ -63,14 +61,6 @@ public class Livro implements Serializable{
 
 	public void setNome_autor(String nome_autor) {
 		this.nome_autor = nome_autor;
-	}
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
 	}
 
 	public String getTexto() {
